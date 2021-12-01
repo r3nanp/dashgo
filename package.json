@@ -9,6 +9,11 @@
     "postinstall": "husky install",
     "typecheck": "tsc --project tsconfig.json --noEmit"
   },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
     "@chakra-ui/react": "^1.7.2",
