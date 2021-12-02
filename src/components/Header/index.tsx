@@ -2,7 +2,13 @@ import { Input, Flex, Text, Icon, HStack, Box, Avatar } from '@chakra-ui/react'
 import { RiNotificationLine, RiUserAddLine } from 'react-icons/ri'
 import { SearchIcon } from '@chakra-ui/icons'
 
-export const Header = () => {
+type HeaderProps = {
+  avatar_url: string
+  email: string
+  name: string
+}
+
+export const Header = ({ avatar_url, email, name }: HeaderProps) => {
   return (
     <Flex
       as="header"
@@ -62,20 +68,14 @@ export const Header = () => {
         </HStack>
 
         <Flex alignItems="center">
-          <Box>
-            <Text mr="4" textAlign="left">
-              Renan Pereira
-            </Text>
+          <Box mr="4" textAlign="right">
+            <Text>{name}</Text>
             <Text color="gray.300" fontSize="small">
-              renanmol87@gmail.com
+              {email}
             </Text>
           </Box>
 
-          <Avatar
-            size="md"
-            name="Renan Pereira"
-            src="https://github.com/r3nanp.png"
-          />
+          <Avatar size="md" name="Renan Pereira" src={avatar_url} />
         </Flex>
       </Flex>
     </Flex>

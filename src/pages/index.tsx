@@ -1,8 +1,9 @@
-import { Button } from '@chakra-ui/react'
-import { Flex, Stack } from '@chakra-ui/layout'
-import { EmailIcon, LockIcon } from '@chakra-ui/icons'
-import { Input } from '@components/Input'
 import { useRouter } from 'next/router'
+import Head from 'next/head'
+import { Button, Flex, Stack } from '@chakra-ui/react'
+import { EmailIcon, LockIcon } from '@chakra-ui/icons'
+
+import { Input } from 'components/Input'
 
 export default function SignIn() {
   const { push } = useRouter()
@@ -15,6 +16,10 @@ export default function SignIn() {
       alignItems="center"
       justifyContent="center"
     >
+      <Head>
+        <title>Sign in</title>
+      </Head>
+
       <Flex
         as="form"
         flexDirection="column"
