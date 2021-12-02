@@ -9,7 +9,7 @@ import {
 } from '@chakra-ui/react'
 
 export type InputProps = ChakraInputProps & {
-  label: string
+  label?: string
   disabled?: boolean
   icon?: ReactElement
   iconPosition?: 'left' | 'right'
