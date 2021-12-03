@@ -30,18 +30,13 @@ export default function SignIn() {
         borderRadius={8}
       >
         <Stack spacing={4}>
-          <Input
-            label="E-mail"
-            name="email"
-            type="email"
-            icon={<EmailIcon />}
-          />
+          <Input label="E-mail" name="email" type="email" iconName="email" />
 
           <Input
             label="Password"
             name="password"
             type="password"
-            icon={<LockIcon />}
+            iconName="lock"
           />
         </Stack>
 

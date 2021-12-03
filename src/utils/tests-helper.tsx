@@ -1,11 +1,10 @@
 import { render, RenderOptions } from '@testing-library/react'
-import { ThemeProvider } from '@chakra-ui/react'
-import { theme } from 'styles/theme'
+import { ThemeProvider } from 'providers/ThemeProvider'
 
 export const customRender = (
   UI: React.ReactNode,
   { ...rest }: RenderOptions = {}
-) => render(<ThemeProvider theme={theme}>{UI}</ThemeProvider>, rest)
+) => render(<ThemeProvider>{UI}</ThemeProvider>, rest)
 
 export * from '@testing-library/react'
 export { customRender as render }

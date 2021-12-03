@@ -1,24 +1,24 @@
-import { ReactElement } from 'react'
 import {
   InputProps as ChakraInputProps,
   Input as ChakraInput,
   FormLabel,
   FormControl,
-  Flex,
-  IconButton
+  Flex
 } from '@chakra-ui/react'
+import { Icon } from 'components'
+import { IconNames } from 'utils/icon-utils'
 
 export type InputProps = ChakraInputProps & {
   label?: string
   disabled?: boolean
-  icon?: ReactElement
+  iconName?: IconNames
   iconPosition?: 'left' | 'right'
 }
 
 export const Input = ({
   label,
   name,
-  icon,
+  iconName,
   iconPosition = 'left',
   disabled = false,
   ...rest
@@ -31,17 +31,14 @@ export const Input = ({
         alignItems="center"
         bgColor="gray.900"
         borderRadius={4}
-        _focusWithin={{ borderWidth: 2, borderColor: 'pink.500' }}
+        _focusWithin={{ borderWidth: 1, borderColor: 'pink.500' }}
       >
-        {!!icon && (
-          <IconButton
-            bg="transparent"
+        {!!iconName && (
+          <Icon
             aria-label={name}
-            icon={icon}
+            iconName={iconName}
             order={iconPosition === 'right' ? 1 : 0}
-            _hover={{ bg: 'transparent', cursor: 'default' }}
-            _active={{ bg: 'transparent' }}
-            _focus={{ border: 'transparent' }}
+            m={2}
           />
         )}
 

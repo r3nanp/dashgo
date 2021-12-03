@@ -1,4 +1,5 @@
 import { Box, Stack, Text, Link, Icon } from '@chakra-ui/react'
+import { Icon as IconC } from 'components/Icon'
 import {
   RiContactsLine,
   RiDashboardLine,
@@ -17,7 +18,7 @@ export const Sidebar = () => {
 
           <Stack spacing="4" mt="8" alignItems="stretch">
             <Link display="flex" alignItems="center">
-              <Icon as={RiDashboardLine} fontSize="20" />
+              <IconC iconName="dashboard" fontSize="20" />
               <Text ml="4" fontWeight="medium">
                 Dashboard
               </Text>

@@ -1,6 +1,5 @@
-import { Input, Flex, Text, Icon, HStack, Box, Avatar } from '@chakra-ui/react'
-import { RiNotificationLine, RiUserAddLine } from 'react-icons/ri'
-import { SearchIcon } from '@chakra-ui/icons'
+import { Input, Flex, Text, HStack, Box, Avatar } from '@chakra-ui/react'
+import { Icon } from 'components/Icon'
 
 type HeaderProps = {
   avatar_url: string
@@ -50,7 +49,7 @@ export const Header = ({ avatar_url, email, name }: HeaderProps) => {
           _placeholder={{ color: 'gray.400' }}
         />
 
-        <SearchIcon />
+        <Icon iconName="search" fontSize="20" />
       </Flex>
 
       <Flex alignItems="center" ml="auto">
@@ -63,8 +62,8 @@ export const Header = ({ avatar_url, email, name }: HeaderProps) => {
           borderColor="gray.700"
           mx="8"
         >
-          <Icon as={RiNotificationLine} fontSize="20" />
-          <Icon as={RiUserAddLine} fontSize="20" />
+          <Icon iconName="notification" fontSize="20" />
+          <Icon iconName="userAdd" fontSize="20" />
         </HStack>
 
         <Flex alignItems="center">
