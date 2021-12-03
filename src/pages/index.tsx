@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { Button, Flex, Stack } from '@chakra-ui/react'
 import { EmailIcon, LockIcon } from '@chakra-ui/icons'
 
-import { Input } from 'components/Input'
+import { Input } from 'components/Form'
 
 export default function SignIn() {
   const { push } = useRouter()
