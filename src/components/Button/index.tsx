@@ -10,12 +10,16 @@ type AnimatedButtonProps = ChakraButtonProps & MotionProps
 
 export type ButtonProps = AnimatedButtonProps & {
   children: ReactNode
-  isLoading: boolean
+  isLoading?: boolean
 }
 
 const MotionButton = motion<AnimatedButtonProps>(ChakraButton)
 
-export const Button = ({ children, isLoading, ...rest }: ButtonProps) => {
+export const Button = ({
+  children,
+  isLoading = false,
+  ...rest
+}: ButtonProps) => {
   return (
     <MotionButton {...rest}>
       {isLoading ? <Spinner size="md" color="whiteAlpha.700" /> : children}

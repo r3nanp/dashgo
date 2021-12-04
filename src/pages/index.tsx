@@ -16,7 +16,7 @@ export default function SignIn() {
       justifyContent="center"
     >
       <Head>
-        <title>dashgo - Login</title>
+        <title>dashgo. - Login</title>
       </Head>
 
       <Flex
