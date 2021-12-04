@@ -8,7 +8,7 @@ export type PaginationProps = {
 export const Pagination = ({ isActive }: PaginationProps) => {
   return (
     <Stack
-      direction="row"
+      direction={['column', 'row']}
       mt="8"
       justifyContent="space-between"
       alignItems="center"

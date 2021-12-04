@@ -25,12 +25,12 @@ export default function CreateUser() {
       />
 
       <AppTemplate>
-        <Box flex="1" borderRadius={8} bg="gray.800" p="8">
+        <Box flex="1" borderRadius={8} bg="gray.800" p={['6', '8']}>
           <Heading title="Criar usuário" />
           <Divider my="6" borderColor="gray.700" />
 
           <VStack spacing="8">
-            <SimpleGrid minChildWidth="240px" spacing="8" width="100%">
+            <SimpleGrid minChildWidth="240px" spacing={['6', '8']} width="100%">
               <Input name="name" label="Nome Completo" iconName="person" />
               <Input
                 name="email"
@@ -40,7 +40,7 @@ export default function CreateUser() {
               />
             </SimpleGrid>
 
-            <SimpleGrid minChildWidth="240px" spacing="8" width="100%">
+            <SimpleGrid minChildWidth="240px" spacing={['6', '8']} width="100%">
               <Input
                 type="password"
                 name="password"
@@ -58,8 +58,12 @@ export default function CreateUser() {
 
           <Flex mt="8" justifyContent="flex-end">
             <HStack spacing="4">
-              <Button colorScheme="whiteAlpha">Cancelar</Button>
-              <Button colorScheme="pink">Salvar</Button>
+              <Button whileHover={{ scale: 1.1 }} colorScheme="whiteAlpha">
+                Cancelar
+              </Button>
+              <Button whileHover={{ scale: 1.1 }} colorScheme="pink">
+                Salvar
+              </Button>
             </HStack>
           </Flex>
         </Box>

@@ -10,12 +10,18 @@ import {
   Tbody,
   Th,
   Tr,
-  Td
+  Td,
+  useBreakpointValue
 } from '@chakra-ui/react'
 import { Header, Heading, Icon, Pagination } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 export default function UsersList() {
+  const isWide = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   return (
     <Box as="main">
       <Head>
@@ -48,19 +54,19 @@ export default function UsersList() {
           <Table colorScheme="whiteAlpha">
             <Thead>
               <Tr>
-                <Th px="6" color="gray.600" width="8">
+                <Th px={['4', '4', '6']} color="gray.600" width="8">
                   <Checkbox colorScheme="pink" />
                 </Th>
 
                 <Th>Usuário</Th>
 
-                <Th>Data de cadastro</Th>
+                {isWide && <Th>Data de cadastro</Th>}
                 <Th width="8"></Th>
               </Tr>
             </Thead>
             <Tbody>
               <Tr>
-                <Td px="6">
+                <Td px={['4', '4', '6']}>
                   <Checkbox colorScheme="pink" />
                 </Td>
 
@@ -73,19 +79,21 @@ export default function UsersList() {
                   </Box>
                 </Td>
 
-                <Td>04 de abril de 2021</Td>
+                {isWide && <Td>04 de abril de 2021</Td>}
 
                 <Td>
-                  <Button
-                    as="a"
-                    size="sm"
-                    fontSize="sm"
-                    colorScheme="purple"
-                    cursor="pointer"
-                    leftIcon={<Icon iconName="edit" fontSize="16" />}
-                  >
-                    Editar
-                  </Button>
+                  {isWide && (
+                    <Button
+                      as="a"
+                      size="sm"
+                      fontSize="sm"
+                      colorScheme="purple"
+                      cursor="pointer"
+                      leftIcon={<Icon iconName="edit" fontSize="16" />}
+                    >
+                      Editar
+                    </Button>
+                  )}
                 </Td>
               </Tr>
             </Tbody>
