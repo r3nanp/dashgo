@@ -1,9 +1,8 @@
-import { useRouter } from 'next/router'
 import Head from 'next/head'
-import { Button, Flex, Stack } from '@chakra-ui/react'
-import { EmailIcon, LockIcon } from '@chakra-ui/icons'
+import { useRouter } from 'next/router'
+import { Flex, Stack } from '@chakra-ui/react'
 
-import { Input } from 'components/Form'
+import { Input, Button } from 'components'
 
 export default function SignIn() {
   const { push } = useRouter()
