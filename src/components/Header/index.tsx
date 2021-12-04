@@ -1,8 +1,11 @@
-import { Flex } from '@chakra-ui/react'
+import { Flex, useBreakpointValue } from '@chakra-ui/react'
+
 import { Logo } from './Logo'
 import { NotificationsNav } from './NotificationsNav'
 import { Profile } from './Profile'
 import { SearchBar } from './SearchBar'
+import { useSidebarDrawer } from 'hooks/useSidebarDrawer'
+import { IconButton } from 'components'
 
 export type HeaderProps = {
   avatar_url: string
@@ -11,6 +14,15 @@ export type HeaderProps = {
 }
 
 export const Header = ({ avatar_url, email, name }: HeaderProps) => {
+  const { disclosure } = useSidebarDrawer()
+
+  const { onOpen } = disclosure
+
+  const isWide = useBreakpointValue({
+    base: false,
+    lg: true
+  })
+
   const profile = { avatar_url, email, name }
 
   return (
@@ -25,14 +37,25 @@ export const Header = ({ avatar_url, email, name }: HeaderProps) => {
       mt="4"
       px="6"
     >
+      {!isWide && (
+        <IconButton
+          aria-label="Open navigation"
+          iconName="menu"
+          variant="unstyled"
+          fontSize="20"
+          onClick={onOpen}
+          mr="2"
+        />
+      )}
+
       <Logo />
 
-      <SearchBar />
+      {isWide && <SearchBar />}
 
       <Flex alignItems="center" ml="auto">
         <NotificationsNav />
 
-        <Profile {...profile} />
+        <Profile {...profile} showProfileData={isWide} />
       </Flex>
     </Flex>
   )
