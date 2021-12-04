@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import {
   Box,
   Divider,
@@ -8,7 +9,7 @@ import {
   Flex
 } from '@chakra-ui/react'
 
-import { Header, Input, Button, Heading } from 'components'
+import { Header, Input, Button, Heading, Card } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 export default function CreateUser() {
@@ -25,7 +26,7 @@ export default function CreateUser() {
       />
 
       <AppTemplate>
-        <Box flex="1" borderRadius={8} bg="gray.800" p={['6', '8']}>
+        <Card flex="1">
           <Heading title="Criar usuário" />
           <Divider my="6" borderColor="gray.700" />
 
@@ -58,15 +59,21 @@ export default function CreateUser() {
 
           <Flex mt="8" justifyContent="flex-end">
             <HStack spacing="4">
-              <Button whileHover={{ scale: 1.1 }} colorScheme="whiteAlpha">
-                Cancelar
-              </Button>
+              <Link href="/users" passHref>
+                <Button
+                  as="a"
+                  whileHover={{ scale: 1.1 }}
+                  colorScheme="whiteAlpha"
+                >
+                  Cancelar
+                </Button>
+              </Link>
               <Button whileHover={{ scale: 1.1 }} colorScheme="pink">
                 Salvar
               </Button>
             </HStack>
           </Flex>
-        </Box>
+        </Card>
       </AppTemplate>
     </Box>
   )

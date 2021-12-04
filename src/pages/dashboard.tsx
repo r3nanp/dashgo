@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import { Flex, SimpleGrid, Box, Text } from '@chakra-ui/react'
+import { Flex, SimpleGrid, Text } from '@chakra-ui/react'
 
-import { Chart, Header } from 'components'
+import { Card, Chart, Header } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 const series = [{ name: 'first-series', data: [31, 120, 321, 10, 28, 109, 18] }]
@@ -21,19 +21,19 @@ export default function Dashboard() {
 
       <AppTemplate>
         <SimpleGrid flex="1" gap="4" minChildWidth="320px" align="flex-start">
-          <Box p={['6', '8']} bg="gray.800" borderRadius={8} pb={4}>
+          <Card pb={4}>
             <Text fontSize="lg" mb="4">
               Inscritos da semana
               <Chart type="area" series={series} height={360} />
             </Text>
-          </Box>
+          </Card>
 
-          <Box p={['6', '8']} bg="gray.800" borderRadius={8}>
+          <Card>
             <Text fontSize="lg" mb="4">
               Taxa de abertura
             </Text>
             <Chart type="area" series={series} height={360} />
-          </Box>
+          </Card>
         </SimpleGrid>
       </AppTemplate>
     </Flex>

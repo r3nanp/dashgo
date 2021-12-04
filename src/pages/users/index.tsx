@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import {
   Box,
   Checkbox,
@@ -13,6 +14,7 @@ import {
   Td,
   useBreakpointValue
 } from '@chakra-ui/react'
+
 import { Header, Heading, Icon, Pagination } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
@@ -39,16 +41,18 @@ export default function UsersList() {
           <Flex mb="8" justifyContent="space-between" alignItems="center">
             <Heading title="Usuários" />
 
-            <Button
-              as="a"
-              size="sm"
-              fontSize="sm"
-              colorScheme="pink"
-              cursor="pointer"
-              leftIcon={<Icon iconName="add" fontSize="20" />}
-            >
-              Criar novo
-            </Button>
+            <Link href="/users/create" passHref>
+              <Button
+                as="a"
+                size="sm"
+                fontSize="sm"
+                colorScheme="pink"
+                cursor="pointer"
+                leftIcon={<Icon iconName="add" fontSize="20" />}
+              >
+                Criar novo
+              </Button>
+            </Link>
           </Flex>
 
           <Table colorScheme="whiteAlpha">
