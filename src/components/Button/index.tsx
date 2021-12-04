@@ -2,26 +2,23 @@ import { ReactNode } from 'react'
 import {
   Button as ChakraButton,
   ButtonProps as ChakraButtonProps,
-  forwardRef
+  Spinner
 } from '@chakra-ui/react'
-import { isValidMotionProp, motion, MotionProps } from 'framer-motion'
+import { motion, MotionProps } from 'framer-motion'
 
 type AnimatedButtonProps = ChakraButtonProps & MotionProps
 
 export type ButtonProps = AnimatedButtonProps & {
   children: ReactNode
+  isLoading: boolean
 }
 
-export const Button = ({ children, ...rest }: ButtonProps) => {
-  const MotionButton = motion<ButtonProps>(
-    forwardRef((props, ref) => {
-      const chakraProps = Object.fromEntries(
-        // do not pass framer props to DOM element
-        Object.entries(props).filter(([key]) => !isValidMotionProp(key))
-      )
-      return <ChakraButton ref={ref} {...chakraProps} />
-    })
-  )
+const MotionButton = motion<AnimatedButtonProps>(ChakraButton)
 
-  return <MotionButton {...rest}>{children}</MotionButton>
+export const Button = ({ children, isLoading, ...rest }: ButtonProps) => {
+  return (
+    <MotionButton {...rest}>
+      {isLoading ? <Spinner size="md" color="whiteAlpha.700" /> : children}
+    </MotionButton>
+  )
 }
