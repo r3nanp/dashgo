@@ -4,7 +4,7 @@ import type { ApexOptions } from 'apexcharts'
 import type { Props as ApexChartsProps } from 'react-apexcharts'
 import { theme } from '@chakra-ui/react'
 
-type ChartProps = ApexChartsProps & {}
+export type ChartProps = ApexChartsProps & {}
 
 const DEFAULT_OPTIONS: ApexOptions = {
   chart: {

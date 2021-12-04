@@ -3,7 +3,6 @@ import {
   Box,
   Checkbox,
   Flex,
-  Heading,
   Button,
   Table,
   Thead,
@@ -13,14 +12,14 @@ import {
   Tr,
   Td
 } from '@chakra-ui/react'
-import { Header, Icon, Pagination } from 'components'
+import { Header, Heading, Icon, Pagination } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 export default function UsersList() {
   return (
     <Box as="main">
       <Head>
-        <title>Listagem de usuários</title>
+        <title>dashgo - Listagem de usuários</title>
       </Head>
 
       <Header
@@ -32,9 +31,7 @@ export default function UsersList() {
       <AppTemplate>
         <Box flex="1" borderRadius={8} bg="gray.800" p="8">
           <Flex mb="8" justifyContent="space-between" alignItems="center">
-            <Heading size="lg" fontWeight="normal">
-              Usuários
-            </Heading>
+            <Heading title="Usuários" />
 
             <Button
               as="a"

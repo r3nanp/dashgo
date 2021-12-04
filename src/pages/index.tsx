@@ -16,7 +16,7 @@ export default function SignIn() {
       justifyContent="center"
     >
       <Head>
-        <title>Sign in</title>
+        <title>dashgo - Login</title>
       </Head>
 
       <Flex
@@ -32,7 +32,7 @@ export default function SignIn() {
           <Input label="E-mail" name="email" type="email" iconName="email" />
 
           <Input
-            label="Password"
+            label="Senha"
             name="password"
             type="password"
             iconName="lock"

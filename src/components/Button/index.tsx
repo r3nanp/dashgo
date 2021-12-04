@@ -8,7 +8,7 @@ import { isValidMotionProp, motion, MotionProps } from 'framer-motion'
 
 type AnimatedButtonProps = ChakraButtonProps & MotionProps
 
-type ButtonProps = AnimatedButtonProps & {
+export type ButtonProps = AnimatedButtonProps & {
   children: ReactNode
 }
 

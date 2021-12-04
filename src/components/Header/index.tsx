@@ -1,13 +1,18 @@
-import { Input, Flex, Text, HStack, Box, Avatar } from '@chakra-ui/react'
-import { Icon } from 'components/Icon'
+import { Flex } from '@chakra-ui/react'
+import { Logo } from './Logo'
+import { NotificationsNav } from './NotificationsNav'
+import { Profile } from './Profile'
+import { SearchBar } from './SearchBar'
 
-type HeaderProps = {
+export type HeaderProps = {
   avatar_url: string
   email: string
   name: string
 }
 
 export const Header = ({ avatar_url, email, name }: HeaderProps) => {
+  const profile = { avatar_url, email, name }
+
   return (
     <Flex
       as="header"
@@ -20,62 +25,14 @@ export const Header = ({ avatar_url, email, name }: HeaderProps) => {
       mt="4"
       px="6"
     >
-      <Text fontSize="3xl" fontWeight="bold" letterSpacing="tight" w="64">
-        dashgo
-        <Text as="span" ml="1" color="pink.500">
-          .
-        </Text>
-      </Text>
+      <Logo />
 
-      <Flex
-        as="label"
-        flex={1}
-        py="4"
-        px="8"
-        ml="8"
-        maxWidth={400}
-        alignSelf="center"
-        color="gray.200"
-        position="relative"
-        bg="gray.800"
-        borderRadius="full"
-      >
-        <Input
-          color="gray.50"
-          variant="unstyled"
-          px="4"
-          mr="4"
-          placeholder="Search"
-          _placeholder={{ color: 'gray.400' }}
-        />
-
-        <Icon iconName="search" fontSize="20" />
-      </Flex>
+      <SearchBar />
 
       <Flex alignItems="center" ml="auto">
-        <HStack
-          spacing="8"
-          pr="8"
-          py="1"
-          color="gray.300"
-          borderRightWidth={1}
-          borderColor="gray.700"
-          mx="8"
-        >
-          <Icon iconName="notification" fontSize="20" />
-          <Icon iconName="userAdd" fontSize="20" />
-        </HStack>
+        <NotificationsNav />
 
-        <Flex alignItems="center">
-          <Box mr="4" textAlign="right">
-            <Text>{name}</Text>
-            <Text color="gray.300" fontSize="small">
-              {email}
-            </Text>
-          </Box>
-
-          <Avatar size="md" name="Renan Pereira" src={avatar_url} />
-        </Flex>
+        <Profile {...profile} />
       </Flex>
     </Flex>
   )
