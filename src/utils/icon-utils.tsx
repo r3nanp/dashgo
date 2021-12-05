@@ -12,7 +12,9 @@ import {
   RiAddLine,
   RiPencilLine,
   RiUser2Line,
-  RiMenuLine
+  RiMenuLine,
+  RiLoaderLine,
+  RiLoader2Line
 } from 'react-icons/ri'
 
 export type IconNames =
@@ -29,6 +31,7 @@ export type IconNames =
   | 'edit'
   | 'person'
   | 'menu'
+  | 'loading'
 
 type Icon = Record<IconNames, IconType>
 
@@ -46,7 +49,8 @@ export const iconUtils = (iconName: IconNames) => {
     add: RiAddLine,
     edit: RiPencilLine,
     person: RiUser2Line,
-    menu: RiMenuLine
+    menu: RiMenuLine,
+    loading: RiLoader2Line
   }
 
   return icons[iconName] ?? icons.dashboard

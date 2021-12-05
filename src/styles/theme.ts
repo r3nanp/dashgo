@@ -1,6 +1,4 @@
-import { ThemeOverride } from '@chakra-ui/react'
-
-export const customTheme: ThemeOverride = {
+export const customTheme = {
   colors: {
     gray: {
       '900': '#181B23',
