@@ -24,11 +24,15 @@ export default function CreateUser() {
   const {
     formState: { errors, isSubmitting },
     handleSubmit,
-    register
+    register,
+    reset
   } = useForm<CreateUserData>({ resolver: createUserResolver })
 
-  const handleCreateUser: SubmitHandler<CreateUserData> = data => {
+  const handleCreateUser: SubmitHandler<CreateUserData> = async data => {
+    await new Promise(resolve => setTimeout(resolve, 2000))
+
     console.log(data)
+    reset()
   }
 
   const onSubmit = handleSubmit(data => handleCreateUser(data))
@@ -44,7 +48,7 @@ export default function CreateUser() {
       />
 
       <AppTemplate>
-        <Card flex="1">
+        <Card flex="1" as="form" onSubmit={onSubmit}>
           <Heading title="Criar usuário" />
           <Divider my="6" borderColor="gray.700" />
 
@@ -55,7 +59,7 @@ export default function CreateUser() {
                 label="Nome Completo"
                 iconName="person"
                 error={errors.name}
-                {...register}
+                {...register('name')}
               />
               <Input
                 name="email"
@@ -63,7 +67,7 @@ export default function CreateUser() {
                 type="email"
                 iconName="email"
                 error={errors.email}
-                {...register}
+                {...register('email')}
               />
             </SimpleGrid>
 
@@ -74,7 +78,7 @@ export default function CreateUser() {
                 label="Senha"
                 iconName="lock"
                 error={errors.password}
-                {...register}
+                {...register('password')}
               />
               <Input
                 name="password_confirmation"
@@ -82,7 +86,7 @@ export default function CreateUser() {
                 type="password"
                 iconName="lock"
                 error={errors.password_confirmation}
-                {...register}
+                {...register('password_confirmation')}
               />
             </SimpleGrid>
           </VStack>
@@ -102,6 +106,7 @@ export default function CreateUser() {
                 isLoading={isSubmitting}
                 whileHover={{ scale: 1.1 }}
                 colorScheme="pink"
+                type="submit"
               >
                 Salvar
               </Button>

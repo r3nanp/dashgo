@@ -13,9 +13,10 @@ export const createUserSchema = Yup.object().shape({
     .min(5, 'A senha precisa ter no mínimo, 5 caracteres')
     .required('A senha é obrigatória.'),
 
-  passwordConfirmation: Yup.string()
-    .oneOf([Yup.ref('password'), null], 'As senhas não são iguais.')
-    .required('A confirmação de senha é obrigatória.')
+  password_confirmation: Yup.string().oneOf(
+    [Yup.ref('password'), null],
+    'As senhas não são iguais.'
+  )
 })
 
 export const createUserResolver = yupResolver(createUserSchema)
