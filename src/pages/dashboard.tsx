@@ -1,7 +1,6 @@
-import Head from 'next/head'
 import { Flex, SimpleGrid, Text } from '@chakra-ui/react'
 
-import { Card, Chart, Header } from 'components'
+import { Card, Chart, Head, Header } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 const series = [{ name: 'first-series', data: [31, 120, 321, 10, 28, 109, 18] }]
@@ -9,9 +8,7 @@ const series = [{ name: 'first-series', data: [31, 120, 321, 10, 28, 109, 18] }]
 export default function Dashboard() {
   return (
     <Flex direction="column" h="100vh">
-      <Head>
-        <title>dashgo.</title>
-      </Head>
+      <Head title="dashgo." />
 
       <Header
         avatar_url="https://github.com/r3nanp.png"

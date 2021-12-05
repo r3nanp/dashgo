@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import {
   Box,
@@ -15,7 +14,7 @@ import {
   useBreakpointValue
 } from '@chakra-ui/react'
 
-import { Header, Heading, Icon, Pagination } from 'components'
+import { Header, Heading, Icon, Head, Pagination } from 'components'
 import { AppTemplate } from 'templates/AppTemplate'
 
 export default function UsersList() {
@@ -26,9 +25,7 @@ export default function UsersList() {
 
   return (
     <Box as="main">
-      <Head>
-        <title>dashgo - Listagem de usuários</title>
-      </Head>
+      <Head title="dashgo - Listagem de usuários" />
 
       <Header
         avatar_url="https://github.com/r3nanp.png"

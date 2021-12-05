@@ -9,10 +9,13 @@ import {
   Flex
 } from '@chakra-ui/react'
 import { Logo } from 'components/Header/Logo'
+import { Head } from 'components'
 
 export default function NotFound() {
   return (
     <Box>
+      <Head title="dashgo. - Não encontrado" />
+
       <Flex
         as="header"
         alignItems="center"
