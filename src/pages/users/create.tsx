@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import Link from 'next/link'
+import { useForm, SubmitHandler } from 'react-hook-form'
 import {
   Box,
   Divider,
@@ -9,15 +9,33 @@ import {
   Flex
 } from '@chakra-ui/react'
 
-import { Header, Input, Button, Heading, Card } from 'components'
+import { createUserResolver } from 'helpers/createUser'
 import { AppTemplate } from 'templates/AppTemplate'
+import { Header, Input, Button, Heading, Head, Card } from 'components'
+
+type CreateUserData = {
+  name: string
+  email: string
+  password: string
+  password_confirmation: string
+}
 
 export default function CreateUser() {
+  const {
+    formState: { errors, isSubmitting },
+    handleSubmit,
+    register
+  } = useForm<CreateUserData>({ resolver: createUserResolver })
+
+  const handleCreateUser: SubmitHandler<CreateUserData> = data => {
+    console.log(data)
+  }
+
+  const onSubmit = handleSubmit(data => handleCreateUser(data))
+
   return (
     <Box as="main">
-      <Head>
-        <title>dashgo - Criação de usuários</title>
-      </Head>
+      <Head title="dashgo. - Criação de usuários" />
 
       <Header
         avatar_url="https://github.com/r3nanp.png"
@@ -32,12 +50,20 @@ export default function CreateUser() {
 
           <VStack spacing="8">
             <SimpleGrid minChildWidth="240px" spacing={['6', '8']} width="100%">
-              <Input name="name" label="Nome Completo" iconName="person" />
+              <Input
+                name="name"
+                label="Nome Completo"
+                iconName="person"
+                error={errors.name}
+                {...register}
+              />
               <Input
                 name="email"
                 label="E-mail"
                 type="email"
                 iconName="email"
+                error={errors.email}
+                {...register}
               />
             </SimpleGrid>
 
@@ -47,12 +73,16 @@ export default function CreateUser() {
                 name="password"
                 label="Senha"
                 iconName="lock"
+                error={errors.password}
+                {...register}
               />
               <Input
-                name="password-confirmation"
+                name="password_confirmation"
                 label="Confirmação da senha"
                 type="password"
                 iconName="lock"
+                error={errors.password_confirmation}
+                {...register}
               />
             </SimpleGrid>
           </VStack>
@@ -68,7 +98,11 @@ export default function CreateUser() {
                   Cancelar
                 </Button>
               </Link>
-              <Button whileHover={{ scale: 1.1 }} colorScheme="pink">
+              <Button
+                isLoading={isSubmitting}
+                whileHover={{ scale: 1.1 }}
+                colorScheme="pink"
+              >
                 Salvar
               </Button>
             </HStack>
