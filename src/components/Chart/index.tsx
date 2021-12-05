@@ -2,7 +2,7 @@ import { useMemo } from 'react'
 import dynamic from 'next/dynamic'
 import type { ApexOptions } from 'apexcharts'
 import type { Props as ApexChartsProps } from 'react-apexcharts'
-import { Spinner, theme } from '@chakra-ui/react'
+import { Flex, Spinner, theme } from '@chakra-ui/react'
 
 export type ChartProps = ApexChartsProps & {}
 
@@ -68,7 +68,11 @@ export const Chart = ({ ...rest }: ChartProps) => {
     () =>
       dynamic(() => import('react-apexcharts'), {
         ssr: false,
-        loading: () => <Spinner size="lg" />
+        loading: () => (
+          <Flex alignItems="center" justifyContent="center">
+            <Spinner size="lg" />
+          </Flex>
+        )
       }),
     []
   )
